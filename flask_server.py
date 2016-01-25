@@ -305,7 +305,7 @@ def up():
 	if (request.method == 'GET'):
 		steps = request.args.get("steps")
 		if steps is None:
-			rotateMotor(steps=2250,direction="UP")		
+			rotateMotor(steps=2050,direction="UP")		
 		else:		
 			rotateMotor(int(steps),"UP")
 	return render_template('index.html',)
@@ -315,7 +315,7 @@ def down():
 	if (request.method == 'GET'):
 		steps = request.args.get("steps")
 		if steps is None:
-			rotateMotor(steps=2250,direction="DOWN")		
+			rotateMotor(steps=2050,direction="DOWN")		
 		else:		
 			rotateMotor(int(steps),"DOWN")
     	return render_template('index.html',)
