@@ -302,15 +302,12 @@ def lightControl():
 
 @app.route('/up.htm', methods=['GET'])
 def up():
-	'''
 	if (request.method == 'GET'):
 		steps = request.args.get("steps")
 		if steps is None:
 			rotateMotor(steps=2050,direction="UP")		
 		else:		
 			rotateMotor(int(steps),"UP")
-	'''
-	home()
 	return render_template('index.html',)
 
 @app.route('/down.htm', methods=['GET'])
