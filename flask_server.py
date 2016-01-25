@@ -303,17 +303,17 @@ def up():
 	if (request.method == 'GET'):
 		steps = request.args.get("steps")
 		if steps is None:
-			rotateMotor(1000,"UP")		
+			rotateMotor(1,"UP")		
 		else:		
 			rotateMotor(int(steps),"UP")
 	return render_template('index.html',)
 
-@app.route('/down.htm', methods=['GET'])
+@app.route('/down.htm?steps=2250', methods=['GET'])
 def down():
 	if (request.method == 'GET'):
 		steps = request.args.get("steps")
 		if steps is None:
-			rotateMotor(steps=10000, direction="DOWN")		
+			rotateMotor(1,"DOWN")		
 		else:		
 			rotateMotor(int(steps),"DOWN")
     	return render_template('index.html',)
