@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>{{title}}</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>{{title}}</h1>
+
+			<h2>Besturing</h2>
+			<a class="btn btn-warning" href="home.htm">bal naar home</a>
+			<a class="btn btn-warning" href="up.htm">bal omhoog</a>
+			<a class="btn btn-warning" href="down.htm">bal omlaag</a>
+
+			<h2>Positie (X: {{xpos}} Y: {{ypos}})</h2>
+			<a class="btn btn-primary" href="xpos.htm">Xpos</a>
+			<a class="btn btn-primary" href="ypos.htm">Ypos</a>
+
+			<h2>Individual animation</h2>
+                        <a class="btn btn-warning" href="animatie1.htm">Clemens & Mark</a>
+			<a class="btn btn-warning" href="animatie2.htm">Axel & Patrick</a>
+			<a class="btn btn-warning" href="animatie3.htm">Indir</a>
+
+			<h2>Programma</h2>			
+			<a class="btn btn-success" href="auto_on.htm">Auto On</a>
+			<a class="btn btn-danger" href="auto_off.htm">Auto Off</a>	
+
+			<h2>Onderhoud</h2>
+			<a class="btn btn-danger" href="shutdown.htm">Shutdown</a>
+			<a class="btn btn-danger" href="reboot.htm">Reboot</a>
+		</div>
+	</body>
+</html>
