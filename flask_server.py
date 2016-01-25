@@ -308,7 +308,7 @@ def up():
 			rotateMotor(int(steps),"UP")
 	return render_template('index.html',)
 
-@app.route('/down.htm?steps=2250', methods=['GET'])
+@app.route('/down.htm', methods=['GET'])
 def down():
 	if (request.method == 'GET'):
 		steps = request.args.get("steps")
