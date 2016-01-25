@@ -266,8 +266,9 @@ def home():
 	# initialize event
 	event = 1
 	loop = True
+	curr_state = GPIO.input(buttonPin)
 	#while loop:
-	while loop:
+	while curr_state==1:
 		'''for pin in range(0, 4):
 			xpin = StepPins[pin]
 			if Seq[StepCounter][pin]!=0:
@@ -284,6 +285,7 @@ def home():
 				print event
 				#sys.exit()
 				loop = False
+				curr_state = 0
 		prev_state = curr_state
 		# If we reach the end of the sequence
 		# start again
