@@ -265,7 +265,8 @@ def home():
 
 	# initialize event
 	event = 1
-	while True:
+	loop = True
+	while loop:
 		while 1==1:
 			for pin in range(0, 4):
 				xpin = StepPins[pin]
@@ -280,7 +281,8 @@ def home():
 					if (curr_state == 0):
 						event = "pressed"
 						print event
-						sys.exit()
+						#sys.exit()
+						loop = False
 				prev_state = curr_state
 				# If we reach the end of the sequence
 				# start again
