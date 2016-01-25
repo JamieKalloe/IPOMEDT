@@ -291,7 +291,7 @@ def home():
 				# Wait before moving on
 				time.sleep(WaitTime)
 	GPIO.cleanup()
-	return 'Action Completed'
+	return render_template('index.html',)
 
 @app.route('/lightcontrol.htm')
 def lightControl():
@@ -303,20 +303,20 @@ def up():
 	if (request.method == 'GET'):
 		steps = request.args.get("steps")
 		if steps is None:
-			rotateMotor(1,"UP")		
+			rotateMotor(steps=2250,direction="UP")		
 		else:		
 			rotateMotor(int(steps),"UP")
-	return 'Action completed'
+	return render_template('index.html',)
 
 @app.route('/down.htm', methods=['GET'])
 def down():
 	if (request.method == 'GET'):
 		steps = request.args.get("steps")
 		if steps is None:
-			rotateMotor(1,"DOWN")		
+			rotateMotor(steps=2250,direction="DOWN")		
 		else:		
 			rotateMotor(int(steps),"DOWN")
-    	return 'Action completed'
+    	return render_template('index.html',)
 
 @app.route('/xpos.htm')
 def xpos():
@@ -435,6 +435,7 @@ def shutdown():
 
 @app.route('/reboot.htm')
 def reboot():
+	os.system('sudo shutdown -r now')
 	thread = StepThreads()
 	thread.start()
 	return 'The Raspberry Pi is rebooting.'
