@@ -305,7 +305,8 @@ def up():
 	if (request.method == 'GET'):
 		steps = request.args.get("steps")
 		if steps is None:
-			rotateMotor(steps=2050,direction="UP")		
+			#rotateMotor(steps=2050,direction="UP")
+			home()			
 		else:		
 			rotateMotor(int(steps),"UP")
 	return render_template('index.html',)
