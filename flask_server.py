@@ -267,7 +267,7 @@ def home():
 	event = 1
 	loop = True
 	while loop:
-		while 1==1:
+		while loop:
 			for pin in range(0, 4):
 				xpin = StepPins[pin]
 				if Seq[StepCounter][pin]!=0:
