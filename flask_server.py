@@ -183,7 +183,7 @@ def downf(steps=1):
     GPIO.setmode(GPIO.BCM)
     buttonPin = 23
     prev_state = 1
-    ControlPin = [22, 27, 18, 17]
+    ControlPin = [17, 18, 27, 22]
 
     for pin in ControlPin:
         GPIO.setup(pin, GPIO.OUT)
