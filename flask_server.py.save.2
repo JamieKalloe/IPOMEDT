@@ -22,18 +22,18 @@ def autoRun():
             light()
             homef()
             tpid = getPid()
-            #if (tpid != 1):
-            #    sensor()
-            #if (tpid == 1):
-               # blink()
-            #if (tpid != 1):
-             #   blink()
+            if (tpid != 1):
+                sensor()
             if (tpid == 1):
-                downf(102)
+                blink()
+            if (tpid != 1):
+                blink()
+            if (tpid == 1):
+                downf(1024)
                 time.sleep(0.25)
-                upf(51)
+                upf(512)
                 time.sleep(0.25)
-                downf(102)
+                downf(1024)
                 time.sleep(0.25)
                 homef()
                 time.sleep(10)
@@ -83,23 +83,28 @@ def blink():
 
 
 def sensor():
-	buttonPin = 5
-	prev_state = 1
+    buttonPin = 18
+    prev_state = 1
 
-	GPIO.setmode(GPIO.BCM)
-	GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-	while True:
+    GPIO.setmode(GPIO.BOARD)
 
-		curr_state = GPIO.input(buttonPin)
-        	if (curr_state != prev_state):
+    sens = True
 
-        		if (curr_state == 1):
-                		print "Lights On"
-			else:
-				print "Lights Off"
-	 	prev_state = curr_state
-	
-        GPIO.cleanup()
+    while sens:
+
+        GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+        curr_state = GPIO.input(buttonPin)
+        if (curr_state != prev_state):
+            if (curr_state == 1):
+                sens = False
+                print "Lights on"
+
+            prev_state = curr_state
+
+        time.sleep(0.02)
+
+    GPIO.cleanup()
 
 
 def readfile(file_name):
@@ -129,12 +134,12 @@ lightOn = 1;
 # light on function
 def light(state="NULL"):
     # to use Raspberry Pi board pin numbers
-    GPIO.setmode(GPIO.BCM)
+    GPIO.setmode(GPIO.BOARD)
     # set up GPIO output channel
-    GPIO.setup(7, GPIO.OUT)
+    GPIO.setup(26, GPIO.OUT)
 
     global lightOn
-    lightPin = 7
+    lightPin = 26
     if (state == "ON") or (lightOn == 0):
         print "Led On"
         GPIO.output(lightPin, GPIO.HIGH)
@@ -161,20 +166,20 @@ def homef():
 
     omw = 1
     while omw:
-       # GPIO.setmode(GPIO.BCM)
-       # GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         curr_state = GPIO.input(buttonPin)
         if (curr_state != prev_state):
             print "home"
             omw = 0
             prev_state = curr_state
             return 1
-        upf()
+        omw = up()
 
-    return 1
+    GPIO.cleanup()
 
 
-def downf(steps=515):
+def downf(steps=1):
     GPIO.setmode(GPIO.BCM)
     buttonPin = 23
     prev_state = 1
@@ -205,13 +210,14 @@ def downf(steps=515):
                     GPIO.output(ControlPin[pin], seq[halfstep][pin])
                 time.sleep(0.0025)
             print(i)
+        return 0
     except KeyboardInterrupt:
         GPIO.cleanup()
 
-    # GPIO.cleanup()
+    GPIO.cleanup()
 
 
-def upf(steps=515):
+def upf(steps=1):
     GPIO.setmode(GPIO.BCM)
     buttonPin = 23
     prev_state = 1
@@ -246,10 +252,11 @@ def upf(steps=515):
                     GPIO.output(ControlPin[pin], seq[halfstep][pin])
                 time.sleep(0.0025)
             print(i)
+        return 0
     except KeyboardInterrupt:
         GPIO.cleanup()
 
-    # GPIO.cleanup()
+    GPIO.cleanup()
 
 
 class StepThreads(threading.Thread):
@@ -299,13 +306,13 @@ def lightControl():
 
 @app.route('/up.htm', methods=['GET'])
 def up():
-   # if (request.method == 'GET'):
+    if (request.method == 'GET'):
         steps = request.args.get("steps")
         if steps is None:
-            upf(steps=515)
+            upf(steps=205)
         else:
             upf(int(steps))
-    	return render_template('index.html', )
+    return render_template('index.html', )
 
 
 @app.route('/down.htm', methods=['GET'])
@@ -313,7 +320,7 @@ def down():
     if (request.method == 'GET'):
         steps = request.args.get("steps")
         if steps is None:
-            downf(steps=515)
+            downf(steps=205)
         else:
             downf(int(steps))
     return render_template('index.html', )
@@ -347,7 +354,6 @@ class autoAnimate(threading.Thread):
 def auto_on():
     global isRunning
     isRunning = True
-    thread.start_new_thread(autoRun, ())
     return redirect(url_for('index'))
 
 
