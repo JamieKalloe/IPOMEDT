@@ -306,12 +306,13 @@ def lightControl():
 
 @app.route('/up.htm', methods=['GET'])
 def up():
-    if (request.method == 'GET'):
+    '''if (request.method == 'GET'):
         steps = request.args.get("steps")
         if steps is None:
             upf(steps=205)
         else:
-            upf(int(steps))
+            upf(int(steps))'''
+	sensor()
     return render_template('index.html', )
 
 
