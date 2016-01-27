@@ -106,7 +106,7 @@ def autoRun():
                 downf(1024)
                 time.sleep(0.25)
                 homef()
-        break
+            break
 
 
 thread.start_new_thread(autoRun, ())
