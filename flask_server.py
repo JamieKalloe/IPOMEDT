@@ -29,7 +29,7 @@ def autoRun():
         #global isRunning
         while isRunning == True:
             #light()
-            homef()
+            # homef()
             #tpid = getPid()
             #if (tpid != 1):
             #    sensor()
