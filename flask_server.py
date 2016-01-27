@@ -379,15 +379,7 @@ def reboot():
 
 @app.route('/animatie1.htm')
 def animatie1():
-    '''
-	rotateMotor(steps=2000, direction="DOWN")
-    for x in range(0, 10):
-        rotateMotor(steps=1000, direction="UP")
-        rotateMotor(steps=1000, direction="DOWN")
-
-    rotateMotor(steps=0, direction="UP")
-	'''
-		sensor()
+	sensor()
     return render_template('index.html',)
 
 
