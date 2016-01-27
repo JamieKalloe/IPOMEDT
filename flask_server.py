@@ -65,8 +65,9 @@ def autoRun():
                 downf(400)
                 print "7. Sleep 0.25"
                 time.sleep(0.25)
-                break
                 light()
+                break
+
                 # homef()
                     # else:
                     #     break
