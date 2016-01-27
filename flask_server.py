@@ -20,8 +20,6 @@ def autoRun():
     print "Raspberry id ", tpid
     global isRunning
     while True:
-        sensorState = sensor()
-        print "sensor state is", sensorState
         if tpid != 1 and sensor() == 1:
             isRunning = True
         else:
@@ -125,6 +123,23 @@ def sensor():
 
         GPIO.cleanup()
         return curr_state
+
+def checkSensor():
+    buttonPin = 5
+    prev_state = 1
+    sensorstate = 0
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+    curr_state = GPIO.input(buttonPin)
+    if curr_state != prev_state:
+        if curr_state == 1:
+            sensorstate = 1
+        else:
+            sensorstate = 0
+    prev_state = curr_state
+
+    return sensorstate
 
 def readfile(file_name):
     response = "OK"
@@ -403,7 +418,8 @@ def reboot():
 
 @app.route('/animatie1.htm')
 def animatie1():
-    sensor()
+    sensor_status = checkSensor()
+    print "sensor = ", sensor_status
     return render_template('index.html', )
 
 
