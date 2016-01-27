@@ -21,11 +21,10 @@ def autoRun():
     global isRunning
     while True:
         if tpid != 1 and checkSensor() == 1:
-            isRunning = True
+            auto_on()
         else:
             global isRunning
-            isRunning = False
-            print "isRunning has been set false"
+            auto_off()
         print "isRunning is", isRunning
         #global isRunning
         while isRunning == True:
