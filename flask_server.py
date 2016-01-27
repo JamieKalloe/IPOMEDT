@@ -61,7 +61,7 @@ def autoRun():
                         time.sleep(0.25)
                         homef()
                     else:
-                        isRunning = False
+                        setOff()
 
             if tpid == 3:
                 light()
