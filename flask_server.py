@@ -24,7 +24,8 @@ def autoRun():
             isRunning = True
         else:
             #auto_off()
-            setOff()
+            #auto_off()
+            isRunning = False
         print "isRunning is", isRunning
         #global isRunning
         while isRunning == True:
@@ -49,14 +50,15 @@ def autoRun():
                 time.sleep(10)
 
             if tpid == 2:
-                light()
-                downf(1024)
-                time.sleep(0.25)
-                upf(512)
-                time.sleep(0.25)
-                downf(1024)
-                time.sleep(0.25)
-                homef()
+                while checkSensor() == 1:
+                    light()
+                    downf(1024)
+                    time.sleep(0.25)
+                    upf(512)
+                    time.sleep(0.25)
+                    downf(1024)
+                    time.sleep(0.25)
+                    homef()
 
             if tpid == 3:
                 light()
