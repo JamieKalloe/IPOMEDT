@@ -65,9 +65,10 @@ def autoRun():
                 # time.sleep(0.25)
                 # light()
                 # break
+                light()
                 sens = checkSensor()
                 if sens == 1:
-                    downf(sens)
+                    downf(10)
                 else:
                     light()
                     break
