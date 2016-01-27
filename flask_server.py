@@ -17,10 +17,14 @@ isRunning = False
 
 def autoRun():
     tpid = getPid()
+    print "Raspberry id ", tpid
     global isRunning
     while True:
         if tpid != 1 and sensor() == 1:
             isRunning = True
+        else:
+            isRunning = False
+    print "isRunning is", isRunning
         #global isRunning
         while isRunning == True:
             #light()
