@@ -139,7 +139,7 @@ def readfile(file_name):
         return response
 
 
-#lightOn = 1;
+lightOn = 1
 
 
 # light on function
