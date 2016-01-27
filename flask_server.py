@@ -50,18 +50,19 @@ def autoRun():
                 time.sleep(10)
 
             if tpid == 2:
-                while True:
-                    if checkSensor() == 1:
-                        light()
-                        downf(1024)
-                        time.sleep(0.25)
-                        upf(512)
-                        time.sleep(0.25)
-                        downf(1024)
-                        time.sleep(0.25)
-                        homef()
-                    else:
-                        setOff()
+                while checkSensor() == 1:
+                    light()
+                    downf(1024)
+                    time.sleep(0.25)
+                    upf(512)
+                    time.sleep(0.25)
+                    downf(1024)
+                    time.sleep(0.25)
+                    homef()
+
+                    if checkSensor() == 0:
+                        # setOff()
+                        print "Sensor detects no light"
 
             if tpid == 3:
                 light()
