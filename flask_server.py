@@ -65,9 +65,13 @@ def autoRun():
                 # time.sleep(0.25)
                 # light()
                 # break
-                light()
-                sensorCode = checkSensor()
-                print sensorCode
+                stepAmout = 500
+                sensorCheck = checkSensor()
+                for step in stepAmout:
+                    if checkSensor() == 1:
+                        downf(1)
+                    else:
+                        break
 
             if tpid == 3:
                 light()
