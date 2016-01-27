@@ -132,12 +132,7 @@ def checkSensor():
     GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
     curr_state = GPIO.input(buttonPin)
-    if curr_state != prev_state:
-        if curr_state == 1:
-            sensorstate = 1
-        else:
-            sensorstate = 0
-    prev_state = curr_state
+    sensorstate = curr_state
 
     return sensorstate
 
