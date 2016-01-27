@@ -16,12 +16,16 @@ isRunning = False
 
 
 def autoRun():
+    tpid = getPid()
+    global isRunning
     while True:
-        global isRunning
+        if tpid != 1 and sensor() == 1:
+            isRunning = True
+        #global isRunning
         while isRunning == True:
             #light()
             homef()
-            tpid = getPid()
+            #tpid = getPid()
             #if (tpid != 1):
             #    sensor()
             #if (tpid == 1):
