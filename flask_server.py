@@ -97,24 +97,23 @@ def blink():
 
 
 def sensor():
-    buttonPin = 5
-    prev_state = 1
+	buttonPin = 5
+	prev_state = 1
 
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-    while True:
+	GPIO.setmode(GPIO.BCM)
+	GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+	while True:
 
-        curr_state = GPIO.input(buttonPin)
-        if (curr_state != prev_state):
+		curr_state = GPIO.input(buttonPin)
+        	if (curr_state != prev_state):
 
-                if (curr_state == 1):
-                    print "Lights On"
-                else:
-                    print "Lights Off"
-        prev_state = curr_state
-	
+        		if (curr_state == 1):
+                		print "Lights On"
+			else:
+				print "Lights Off"
+	 	prev_state = curr_state
+
         GPIO.cleanup()
-    return curr_state
 
 def readfile(file_name):
     response = "OK"
