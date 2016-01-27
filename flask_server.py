@@ -29,7 +29,7 @@ def autoRun():
             #if (tpid != 1):
              #   blink()
             if (tpid == 1):
-				light()
+                light()
                 downf(102)
                 time.sleep(0.25)
                 upf(51)
@@ -40,7 +40,7 @@ def autoRun():
                 time.sleep(10)
 
             if (tpid == 2 and sensor() == 1):
-				light()
+                light()
                 downf(1024)
                 time.sleep(0.25)
                 upf(512)
@@ -50,7 +50,7 @@ def autoRun():
                 homef()
 
             if (tpid == 3 and sensor() == 1):
-				light()
+                light()
                 downf(1024)
                 time.sleep(0.25)
                 upf(512)
@@ -60,7 +60,7 @@ def autoRun():
                 homef()
 
             if (tpid == 4 and sensor() == 1):
-				light()
+                light()
                 downf(1024)
                 time.sleep(0.25)
                 upf(512)
@@ -69,15 +69,15 @@ def autoRun():
                 time.sleep(0.25)
                 homef()
 				
-			if (tpid == 5 and sensor() == 1):
-				light()
-				downf(1024)
-				time.sleep(0.25)
-				upf(512)
-				time.sleep(0.25)
-				downf(1024)
-				time.sleep(0.25)
-				homef()
+            if (tpid == 5 and sensor() == 1):
+                light()
+                downf(1024)
+                time.sleep(0.25)
+                upf(512)
+                time.sleep(0.25)
+                downf(1024)
+                time.sleep(0.25)
+                homef()
 
 
 thread.start_new_thread(autoRun, ())
