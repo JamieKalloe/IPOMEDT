@@ -28,7 +28,7 @@ def autoRun():
                # blink()
             #if (tpid != 1):
              #   blink()
-            if (tpid == 1):
+            if tpid == 1:
                 light()
                 downf(102)
                 time.sleep(0.25)
