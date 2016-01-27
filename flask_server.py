@@ -24,7 +24,7 @@ def autoRun():
             #isRunning = True
             setOn()
         else:
-            
+            isRunning = False
         print "isRunning is", isRunning
         #global isRunning
         while isRunning == True:
