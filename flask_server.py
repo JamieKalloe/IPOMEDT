@@ -73,7 +73,7 @@ def autoRun():
                         downf(1)
                     else:
                         # homef()
-                        light()
+                        light("OFF")
                         break
 
             if tpid == 3:
