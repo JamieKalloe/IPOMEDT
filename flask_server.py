@@ -21,7 +21,8 @@ def autoRun():
     global isRunning
     while True:
         if tpid != 1 and checkSensor() == 1:
-            isRunning = True
+            #isRunning = True
+            setOn()
         else:
             #auto_off()
             #auto_off()
@@ -50,20 +51,19 @@ def autoRun():
                 time.sleep(10)
 
             if tpid == 2:
-                while checkSensor() == 1:
-                    print "doing the animation"
-                    light()
-                    downf(1024)
-                    time.sleep(0.25)
-                    upf(512)
-                    time.sleep(0.25)
-                    downf(1024)
-                    time.sleep(0.25)
-                    homef()
-
-                    if checkSensor() == 0:
-                        # setOff()
-                        print "Sensor detects no light"
+                if checkSensor() == 1:
+                    while checkSensor() == 1
+                        print "doing the animation"
+                        light()
+                        # downf(1024)
+                        # time.sleep(0.25)
+                        # upf(512)
+                        # time.sleep(0.25)
+                        # downf(1024)
+                        # time.sleep(0.25)
+                        # homef()
+                else:
+                    break
 
             if tpid == 3:
                 light()
@@ -151,6 +151,10 @@ def setOff():
     GPIO.cleanup()
     thread.start_new_thread(autoRun, ())
 
+def setOn():
+    global isRunning
+    isRunning = True
+    thread.start_new_thread(autoRun, ())
 
 def readfile(file_name):
     response = "OK"
@@ -395,9 +399,10 @@ class autoAnimate(threading.Thread):
 
 @app.route("/auto_on.htm")
 def auto_on():
-    global isRunning
-    isRunning = True
-    thread.start_new_thread(autoRun, ())
+    #global isRunning
+    #isRunning = True
+    #thread.start_new_thread(autoRun, ())
+    setOn()
     return redirect(url_for('index'))
 
 
