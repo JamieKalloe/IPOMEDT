@@ -52,7 +52,7 @@ def autoRun():
 
             if tpid == 2:
                 if checkSensor() == 1:
-                    while checkSensor() == 1
+                    while checkSensor() == 1:
                         print "doing the animation"
                         light()
                         # downf(1024)
