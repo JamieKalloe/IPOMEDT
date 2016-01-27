@@ -380,7 +380,7 @@ def reboot():
 @app.route('/animatie1.htm')
 def animatie1():
 	sensor()
-    return render_template('index.html',)
+	return render_template('index.html', )
 
 
 @app.route('/animatietest.htm')
