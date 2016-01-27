@@ -51,20 +51,16 @@ def autoRun():
 
             if tpid == 2:
                 while True:
-                    while True:
-                        sensor = checkSensor()
-                        print "Sensor is", sensor
-
-                    if sensor == 1:
+                    if checkSensor() == 1:
                         print "doing the animation"
                         light()
                         downf(1024)
-                        time.sleep(0.25)
-                        upf(512)
-                        time.sleep(0.25)
-                        downf(1024)
-                        time.sleep(0.25)
-                        homef()
+                        #time.sleep(0.25)
+                        #upf(512)
+                        #time.sleep(0.25)
+                        #downf(1024)
+                        #time.sleep(0.25)
+                        #homef()
                     else:
                         setOff()
 
