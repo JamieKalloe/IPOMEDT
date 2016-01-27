@@ -19,7 +19,7 @@ def autoRun():
     while True:
         global isRunning
         while isRunning == True:
-            light()
+            #light()
             homef()
             tpid = getPid()
             #if (tpid != 1):
@@ -29,6 +29,7 @@ def autoRun():
             #if (tpid != 1):
              #   blink()
             if (tpid == 1):
+				light()
                 downf(102)
                 time.sleep(0.25)
                 upf(51)
@@ -38,7 +39,8 @@ def autoRun():
                 homef()
                 time.sleep(10)
 
-            if (tpid == 2):
+            if (tpid == 2 and sensor() == 1):
+				light()
                 downf(1024)
                 time.sleep(0.25)
                 upf(512)
@@ -47,7 +49,8 @@ def autoRun():
                 time.sleep(0.25)
                 homef()
 
-            if (tpid == 3):
+            if (tpid == 3 and sensor() == 1):
+				light()
                 downf(1024)
                 time.sleep(0.25)
                 upf(512)
@@ -56,7 +59,8 @@ def autoRun():
                 time.sleep(0.25)
                 homef()
 
-            if (tpid == 4):
+            if (tpid == 4 and sensor() == 1):
+				light()
                 downf(1024)
                 time.sleep(0.25)
                 upf(512)
@@ -64,6 +68,16 @@ def autoRun():
                 downf(1024)
                 time.sleep(0.25)
                 homef()
+				
+			if (tpid == 5 and sensor() == 1):
+				light()
+				downf(1024)
+				time.sleep(0.25)
+				upf(512)
+				time.sleep(0.25)
+				downf(1024)
+				time.sleep(0.25)
+				homef()
 
 
 thread.start_new_thread(autoRun, ())
@@ -94,9 +108,11 @@ def sensor():
         	if (curr_state != prev_state):
 
         		if (curr_state == 1):
-                		print "Lights On"
+                		#print "Lights On"
+						return 1
 			else:
-				print "Lights Off"
+				#print "Lights Off"
+				return 0
 	 	prev_state = curr_state
 	
         GPIO.cleanup()
