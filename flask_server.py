@@ -20,6 +20,8 @@ def autoRun():
     print "Raspberry id ", tpid
     global isRunning
     while True:
+        sensorState = sensor()
+        print "sensor state is", sensorState
         if tpid != 1 and sensor() == 1:
             isRunning = True
         else:
