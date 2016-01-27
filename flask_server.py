@@ -108,19 +108,13 @@ def sensor():
         if (curr_state != prev_state):
 
                 if (curr_state == 1):
-                    #print "Lights On"
-                    return 1
+                    print "Lights On"
                 else:
-                    #print "Lights Off"
-                    return 0
+                    print "Lights Off"
         prev_state = curr_state
 	
         GPIO.cleanup()
-
-
-def printSensor():
-    sensorStatus = sensor()
-    print sensorStatus
+    return curr_state
 
 def readfile(file_name):
     response = "OK"
@@ -399,7 +393,7 @@ def reboot():
 
 @app.route('/animatie1.htm')
 def animatie1():
-    printSensor()
+    sensor()
     return render_template('index.html', )
 
 
