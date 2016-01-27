@@ -19,7 +19,7 @@ def autoRun():
     while True:
         global isRunning
         while isRunning == True:
-            light()
+            #light()
             homef()
             tpid = getPid()
             #if (tpid != 1):
@@ -29,7 +29,7 @@ def autoRun():
             #if (tpid != 1):
              #   blink()
             if (tpid == 1):
-                #light()
+                light()
                 downf(102)
                 time.sleep(0.25)
                 upf(51)
