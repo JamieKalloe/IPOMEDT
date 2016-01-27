@@ -67,7 +67,7 @@ def autoRun():
                 # break
                 stepAmout = 500
                 sensorCheck = checkSensor()
-                for step in stepAmout:
+                for step in range(1, stepAmout):
                     if checkSensor() == 1:
                         downf(1)
                     else:
