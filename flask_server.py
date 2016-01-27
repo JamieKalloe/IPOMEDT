@@ -65,12 +65,15 @@ def autoRun():
                 # time.sleep(0.25)
                 # light()
                 # break
+                homef()
+                light()
                 stepAmout = 500
                 sensorCheck = checkSensor()
                 for step in range(1, stepAmout):
                     if checkSensor() == 1:
                         downf(1)
                     else:
+                        light()
                         break
 
             if tpid == 3:
