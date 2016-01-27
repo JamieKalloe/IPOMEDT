@@ -24,7 +24,7 @@ def autoRun():
             isRunning = True
         else:
             isRunning = False
-    print "isRunning is", isRunning
+        print "isRunning is", isRunning
         #global isRunning
         while isRunning == True:
             #light()
