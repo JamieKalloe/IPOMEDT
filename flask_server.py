@@ -23,7 +23,6 @@ def autoRun():
         if tpid != 1 and checkSensor() == 1:
             auto_on()
         else:
-            global isRunning
             auto_off()
         print "isRunning is", isRunning
         #global isRunning
