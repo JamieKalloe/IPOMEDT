@@ -49,12 +49,10 @@ def autoRun():
                 time.sleep(10)
 
             if tpid == 2:
-                # while checkSensor() == 1:
-                #     if checkSensor() == 1:
-                print "1. Start light"
-                light()
-                print "2. Down 400"
-                downf(400)
+                # print "1. Start light"
+                # light()
+                # print "2. Down 400"
+                # downf(400)
                 # print "3. Sleep 0.25"
                 # time.sleep(0.25)
                 # print "4. Up 400"
@@ -65,12 +63,14 @@ def autoRun():
                 # downf(400)
                 # print "7. Sleep 0.25"
                 # time.sleep(0.25)
-                light()
-                break
-
-                # homef()
-                    # else:
-                    #     break
+                # light()
+                # break
+                sens = checkSensor()
+                if sens == 1:
+                    downf(sens)
+                else:
+                    light()
+                    break
 
             if tpid == 3:
                 light()
