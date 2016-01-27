@@ -387,7 +387,7 @@ def animatie1():
 
     rotateMotor(steps=0, direction="UP")
 	'''
-	sensor()
+		sensor()
     return render_template('index.html',)
 
 
