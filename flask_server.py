@@ -43,7 +43,7 @@ def autoRun():
                 homef()
                 time.sleep(10)
 
-            if (tpid == 2 and sensor() == 1):
+            if tpid == 2:
                 light()
                 downf(1024)
                 time.sleep(0.25)
@@ -53,7 +53,7 @@ def autoRun():
                 time.sleep(0.25)
                 homef()
 
-            if (tpid == 3 and sensor() == 1):
+            if tpid == 3:
                 light()
                 downf(1024)
                 time.sleep(0.25)
@@ -63,7 +63,7 @@ def autoRun():
                 time.sleep(0.25)
                 homef()
 
-            if (tpid == 4 and sensor() == 1):
+            if tpid == 4:
                 light()
                 downf(1024)
                 time.sleep(0.25)
@@ -73,7 +73,7 @@ def autoRun():
                 time.sleep(0.25)
                 homef()
 				
-            if (tpid == 5 and sensor() == 1):
+            if tpid == 5:
                 light()
                 downf(1024)
                 time.sleep(0.25)
