@@ -28,7 +28,7 @@ def autoRun():
         print "isRunning is", isRunning
         #global isRunning
         while isRunning == True:
-            #light()
+            light()
             # homef()
             #tpid = getPid()
             #if (tpid != 1):
@@ -65,7 +65,8 @@ def autoRun():
                 # time.sleep(0.25)
                 # light()
                 # break
-                light()
+                # light()
+                
                 stepAmout = 500
                 sensorCheck = checkSensor()
                 for step in range(1, stepAmout):
