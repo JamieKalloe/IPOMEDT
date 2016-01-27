@@ -26,7 +26,7 @@ def autoRun():
         else:
             #auto_off()
             #auto_off()
-            isRunning = False
+            setOff()
         print "isRunning is", isRunning
         #global isRunning
         while isRunning == True:
