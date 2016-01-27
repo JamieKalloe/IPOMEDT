@@ -108,12 +108,13 @@ def sensor():
         	if (curr_state != prev_state):
 
         		if (curr_state == 1):
-                		print "Lights On"
+                		print "Lights On " + curr_state
 			else:
-				print "Lights Off"
+				print "Lights Off " + curr_state
 	 	prev_state = curr_state
 
         GPIO.cleanup()
+        return curr_state
 
 def readfile(file_name):
     response = "OK"
