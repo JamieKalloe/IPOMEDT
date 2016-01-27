@@ -66,12 +66,8 @@ def autoRun():
                 # light()
                 # break
                 light()
-                sens = checkSensor()
-                if sens == 1:
-                    downf(10)
-                else:
-                    light()
-                    break
+                sensorCode = checkSensor()
+                print sensorCode
 
             if tpid == 3:
                 light()
