@@ -136,6 +136,14 @@ def checkSensor():
 
     return sensorstate
 
+
+def setOff():
+    global isRunning
+    isRunning = False
+    GPIO.cleanup()
+    thread.start_new_thread(autoRun, ())
+
+
 def readfile(file_name):
     response = "OK"
     try:
@@ -387,10 +395,11 @@ def auto_on():
 
 @app.route('/auto_off.htm')
 def auto_off():
-    global isRunning
-    isRunning = False
-    GPIO.cleanup()
-    thread.start_new_thread(autoRun, ())
+    #global isRunning
+    #isRunning = False
+    #GPIO.cleanup()
+    #thread.start_new_thread(autoRun, ())
+    setOff()
     return redirect(url_for('index'))
 
 
