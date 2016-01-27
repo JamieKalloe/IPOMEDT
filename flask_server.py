@@ -97,26 +97,30 @@ def blink():
 
 
 def sensor():
-	buttonPin = 5
-	prev_state = 1
+    buttonPin = 5
+    prev_state = 1
 
-	GPIO.setmode(GPIO.BCM)
-	GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-	while True:
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+    while True:
 
-		curr_state = GPIO.input(buttonPin)
-        	if (curr_state != prev_state):
+        curr_state = GPIO.input(buttonPin)
+        if (curr_state != prev_state):
 
-        		if (curr_state == 1):
-                		#print "Lights On"
-						return 1
-			else:
-				#print "Lights Off"
-				return 0
-	 	prev_state = curr_state
+                if (curr_state == 1):
+                    #print "Lights On"
+                    return 1
+                else:
+                    #print "Lights Off"
+                    return 0
+        prev_state = curr_state
 	
         GPIO.cleanup()
 
+
+def printSensor():
+    sensorStatus = sensor()
+    print sensorStatus
 
 def readfile(file_name):
     response = "OK"
@@ -395,8 +399,8 @@ def reboot():
 
 @app.route('/animatie1.htm')
 def animatie1():
-	sensor()
-	return render_template('index.html', )
+    printSensor()
+    return render_template('index.html', )
 
 
 @app.route('/animatietest.htm')
