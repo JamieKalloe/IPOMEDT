@@ -72,7 +72,7 @@ def autoRun():
                     if checkSensor() == 1:
                         downf(1)
                     else:
-                        homef()
+                        # homef()
                         light()
                         break
 
