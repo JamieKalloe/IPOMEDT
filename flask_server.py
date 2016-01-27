@@ -24,7 +24,7 @@ def autoRun():
             isRunning = True
         else:
             #auto_off()
-            GPIO.cleanup()
+            setOff()
         print "isRunning is", isRunning
         #global isRunning
         while isRunning == True:
