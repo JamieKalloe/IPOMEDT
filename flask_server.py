@@ -55,16 +55,16 @@ def autoRun():
                 light()
                 print "2. Down 400"
                 downf(400)
-                print "3. Sleep 0.25"
-                time.sleep(0.25)
-                print "4. Up 400"
-                upf(400)
-                print "5. Sleep 0.25"
-                time.sleep(0.25)
-                print "6. Down 400"
-                downf(400)
-                print "7. Sleep 0.25"
-                time.sleep(0.25)
+                # print "3. Sleep 0.25"
+                # time.sleep(0.25)
+                # print "4. Up 400"
+                # upf(400)
+                # print "5. Sleep 0.25"
+                # time.sleep(0.25)
+                # print "6. Down 400"
+                # downf(400)
+                # print "7. Sleep 0.25"
+                # time.sleep(0.25)
                 light()
                 break
 
