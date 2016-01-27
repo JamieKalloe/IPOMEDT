@@ -66,7 +66,7 @@ def autoRun():
                 # light()
                 # break
                 # light()
-                
+
                 stepAmout = 500
                 sensorCheck = checkSensor()
                 for step in range(1, stepAmout):
@@ -106,6 +106,7 @@ def autoRun():
                 downf(1024)
                 time.sleep(0.25)
                 homef()
+        break
 
 
 thread.start_new_thread(autoRun, ())
