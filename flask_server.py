@@ -317,22 +317,18 @@ def upf(steps=515):
            [1, 1, 0, 0],
            [1, 0, 0, 0],
            [1, 0, 0, 1]]
-    try:
-        for i in range(1 * steps):
-            GPIO.setmode(GPIO.BCM)
-            GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-            curr_state = GPIO.input(buttonPin)
-            if prev_state != curr_state:
-                break
-            for halfstep in range(8):
-                for pin in range(4):
-                    GPIO.output(ControlPin[pin], seq[halfstep][pin])
-                time.sleep(0.0025)
-            print(i)
-    except KeyboardInterrupt:
-        # GPIO.cleanup()
 
-    # GPIO.cleanup()
+    for i in range(1 * steps):
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        curr_state = GPIO.input(buttonPin)
+        if prev_state != curr_state:
+            break
+        for halfstep in range(8):
+            for pin in range(4):
+                GPIO.output(ControlPin[pin], seq[halfstep][pin])
+            time.sleep(0.0025)
+        print(i)
 
 
 class StepThreads(threading.Thread):
