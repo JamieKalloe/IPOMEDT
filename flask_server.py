@@ -44,7 +44,7 @@ def autoRun():
             #if (tpid != 1):
              #   blink()
             if tpid == 1:
-                light()
+                light("ON")
                 homef()
                 downf(102)
                 time.sleep(0.25)
