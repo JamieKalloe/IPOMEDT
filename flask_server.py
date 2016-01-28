@@ -36,7 +36,7 @@ def autoRun():
         while isRunning == True:
 
             if tpid != 1:
-                time.sleep(1)
+                time.sleep(3)
 
             if tpid == 1:
                 light("ON")
@@ -48,7 +48,7 @@ def autoRun():
                 print("5. Sleep 0.25")
                 time.sleep(0.25)
                 print("6. Down 400")
-                downf(400)
+                downf(1000)
                 print("7. Sleep 0.25")
                 time.sleep(0.25)
 
@@ -62,7 +62,7 @@ def autoRun():
                 print("5. Sleep 0.25")
                 time.sleep(0.25)
                 print("6. Down 400")
-                downf(400)
+                downf(1000)
                 print("7. Sleep 0.25")
                 time.sleep(0.25)
 
@@ -76,7 +76,7 @@ def autoRun():
                 print("5. Sleep 0.25")
                 time.sleep(0.25)
                 print("6. Down 400")
-                downf(400)
+                downf(1000)
                 print("7. Sleep 0.25")
                 time.sleep(0.25)
 
@@ -90,7 +90,7 @@ def autoRun():
                 print("5. Sleep 0.25")
                 time.sleep(0.25)
                 print("6. Down 400")
-                downf(400)
+                downf(1000)
                 print("7. Sleep 0.25")
                 time.sleep(0.25)
 				
@@ -104,7 +104,7 @@ def autoRun():
                 print("5. Sleep 0.25")
                 time.sleep(0.25)
                 print("6. Down 400")
-                downf(400)
+                downf(1000)
                 print("7. Sleep 0.25")
                 time.sleep(0.25)
             break
