@@ -289,7 +289,10 @@ def downf(steps=515):
             GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
             curr_state = GPIO.input(buttonPin)
             if prev_state != curr_state:
-                break
+                if isRunning is True:
+                    downf(50)
+                else:
+                    break
             for halfstep in range(8):
                 for pin in range(4):
                     GPIO.output(ControlPin[pin], seq[halfstep][pin])
