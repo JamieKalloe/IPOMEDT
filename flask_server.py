@@ -293,7 +293,6 @@ def downf(steps=515):
 
     # GPIO.cleanup()
 
-
 def upf(steps=515):
     GPIO.setmode(GPIO.BCM)
     buttonPin = 23
