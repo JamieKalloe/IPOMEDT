@@ -166,7 +166,7 @@ def checkSensor():
 def setOff():
     global isRunning
     isRunning = False
-    global  stopChecking
+    global stopChecking
     stopChecking = True
     GPIO.cleanup()
     thread.start_new_thread(autoRun, ())
@@ -174,6 +174,8 @@ def setOff():
 def setOn():
     global isRunning
     isRunning = True
+    global stopChecking
+    stopChecking = False
     thread.start_new_thread(autoRun, ())
 
 def readfile(file_name):
