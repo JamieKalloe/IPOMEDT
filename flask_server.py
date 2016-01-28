@@ -399,7 +399,7 @@ def up():
             upf(int(steps))
     else:
         print("Auto_on is running, cannot go up!")
-        return render_template('index.html', )
+    return render_template('index.html', )
 
 
 @app.route('/down.htm', methods=['GET'])
