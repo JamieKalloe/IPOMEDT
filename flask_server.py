@@ -15,6 +15,7 @@ LeadingTreads = []
 isRunning = False
 stopChecking = False
 tryToStart = True
+individualAnim = False
 
 def autoRun():
     tpid = getPid()
@@ -181,6 +182,8 @@ def setOff():
     stopChecking = True
     global tryToStart
     tryToStart = False
+    global individualAnim
+    individualAnim = False
     GPIO.cleanup()
     thread.start_new_thread(autoRun, ())
 
@@ -499,9 +502,23 @@ def reboot():
 @app.route('/animatie1.htm')
 def animatie1():
     global tryToStart
+    global individualAnim
+    individualAnim = True
     if tryToStart == False:
-        sensor_status = checkSensor()
-        print "sensor = ", sensor_status
+        while individualAnim == True:
+            homef()
+            print("2. Down 400")
+            downf(400)
+            print("3. Sleep 0.25")
+            time.sleep(0.25)
+            print("4. Up 400")
+            upf(400)
+            print("5. Sleep 0.25")
+            time.sleep(0.25)
+            print("6. Down 400")
+            downf(400)
+            print("7. Sleep 0.25")
+            time.sleep(0.25)
     else:
         print("Auto_on is running, cannot start another animation!")
     return render_template('index.html', )
