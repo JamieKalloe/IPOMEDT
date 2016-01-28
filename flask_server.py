@@ -35,6 +35,9 @@ def autoRun():
         print "isRunning is", isRunning
         #global isRunning
         while isRunning == True:
+
+            if tpid != 1:
+                time.sleep(1)
             # light()
             # homef()
             #tpid = getPid()
