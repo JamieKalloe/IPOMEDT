@@ -257,6 +257,8 @@ def homef():
             print "home"
             omw = 0
             prev_state = curr_state
+            if isRunning is True:
+                downf(50)
             return 1
         upf()
 
