@@ -182,8 +182,6 @@ def setOff():
     stopChecking = True
     global tryToStart
     tryToStart = False
-    global individualAnim
-    individualAnim = False
     GPIO.cleanup()
     thread.start_new_thread(autoRun, ())
 
@@ -499,7 +497,7 @@ def reboot():
     return 'The Raspberry Pi is rebooting.'
 
 
-@app.route('/animatie1.htm')
+@app.route('/individual_animation.htm')
 def animatie1():
     global tryToStart
     global individualAnim
@@ -523,54 +521,11 @@ def animatie1():
         print("Auto_on is running, cannot start another animation!")
     return render_template('index.html', )
 
-
-@app.route('/animatietest.htm')
-def animatietest():
-    buttonPin = 4  # this will be an input pin to which the button is attached
-    # in this case pin GPIO23 (which is pin number 16)
-    prev_state = 1  # set start state to 1 (button released)
-
-    # we're using the BCM pin layout of the Raspberry PI
-    GPIO.setmode(GPIO.BCM)
-
-    # set pin GPIO23 to be an input pin; this pin will read the button state
-    # activate pull down for pin GPIO23
-    GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
-    # initialize event
-    event = 1
-
-    print "Button Events versie 1"
-
-    # keep on executing this loop forever (until someone stops the program)
-    while True:
-
-        # read the current button state by reading pin GPIO23 on the Raspberry PI
-        # the curr_state can be '0' (if button pressed) or '1' (if button released)
-        curr_state = GPIO.input(buttonPin)
-        # if state changed, take some actions
-        global exitFlag, quitAll
-        while exitFlag != 1 and quitAll != 1:  # state changed from '1' to '0' or from '0' to '1'
-            if (curr_state == 1):  # button changed from pressed ('0') to released ('1')
-                auto_off()
-            else:  # button changed from released ('1') to pressed ('0')
-                event = "aan"  # print event to console
-                light("ON")
-                return 'AAN'
-                animatie1()
-                print event
-            prev_state = curr_state  # store current state
-
-        time.sleep(0.02)  # sleep for a while, to prevent bouncing
-    # when exiting, reset all pins
-    GPIO.cleanup()
-
-
-@app.route('/kill.htm')
-def kill():
-    GPIO.cleanup()
-    return 'Action stopped'
-
+@app.route('/stop_indivi_anim.htm')
+def stop_anim():
+    global individualAnim
+    individualAnim = False
+    return render_template('index.html', )
 
 class checkLight(threading.Thread):
     def __init__(self):
