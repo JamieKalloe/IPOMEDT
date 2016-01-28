@@ -13,7 +13,7 @@ threads = []
 LeadingTreads = []
 
 isRunning = False
-
+stopChecking = False
 
 def autoRun():
     tpid = getPid()
@@ -25,7 +25,9 @@ def autoRun():
             # setOn()
         else:
             isRunning = False
-            
+            if stopChecking == True:
+                break
+
         print "isRunning is", isRunning
         #global isRunning
         while isRunning == True:
@@ -164,6 +166,8 @@ def checkSensor():
 def setOff():
     global isRunning
     isRunning = False
+    global  stopChecking
+    stopChecking = True
     GPIO.cleanup()
     thread.start_new_thread(autoRun, ())
 
