@@ -378,13 +378,21 @@ def index():
 
 @app.route('/home.htm')
 def home():
-    homef()
+    global tryToStart
+    if tryToStart == False:
+        homef()
+    else:
+        print("Auto_on is running, cannot go to home!")
     return render_template('index.html', )
 
 
 @app.route('/lightcontrol.htm')
 def lightControl():
-    light()
+    global tryToStart
+    if tryToStart == False:
+        light()
+    else:
+        print("Auto_on is running, cannot turn led on/off")
     return redirect("/", code=302)
 
 
@@ -469,6 +477,8 @@ def shutdown():
         thread.start()
     else:
         print("Auto_on is running, cannot shutdown!")
+        return redirect(url_for('index'))
+
 
     return 'The Raspberry Pi is shutting down.'
 
@@ -482,6 +492,7 @@ def reboot():
         thread.start()
     else:
         print("Auto_on is running, cannot reboot!")
+        return redirect(url_for('index'))
     return 'The Raspberry Pi is rebooting.'
 
 
