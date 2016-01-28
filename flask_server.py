@@ -34,7 +34,7 @@ def autoRun():
         print "isRunning is", isRunning
         #global isRunning
         while isRunning == True:
-            light()
+            # light()
             homef()
             #tpid = getPid()
             #if (tpid != 1):
@@ -44,7 +44,7 @@ def autoRun():
             #if (tpid != 1):
              #   blink()
             if tpid == 1:
-                # light()
+                light()
                 downf(102)
                 time.sleep(0.25)
                 upf(51)
@@ -55,8 +55,8 @@ def autoRun():
                 time.sleep(10)
 
             if tpid == 2:
-                # print "1. Start light"
-                # light()
+                print "1. Start light"
+                light()
                 print "2. Down 400"
                 downf(400)
                 print "3. Sleep 0.25"
@@ -317,18 +317,22 @@ def upf(steps=515):
            [1, 1, 0, 0],
            [1, 0, 0, 0],
            [1, 0, 0, 1]]
+    try:
+        for i in range(1 * steps):
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+            curr_state = GPIO.input(buttonPin)
+            if prev_state != curr_state:
+                break
+            for halfstep in range(8):
+                for pin in range(4):
+                    GPIO.output(ControlPin[pin], seq[halfstep][pin])
+                time.sleep(0.0025)
+            print(i)
+    except KeyboardInterrupt:
+        GPIO.cleanup()
 
-    for i in range(1 * steps):
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-        curr_state = GPIO.input(buttonPin)
-        if prev_state != curr_state:
-            break
-        for halfstep in range(8):
-            for pin in range(4):
-                GPIO.output(ControlPin[pin], seq[halfstep][pin])
-            time.sleep(0.0025)
-        print(i)
+    # GPIO.cleanup()
 
 
 class StepThreads(threading.Thread):
