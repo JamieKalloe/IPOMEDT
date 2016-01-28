@@ -330,7 +330,7 @@ def upf(steps=515):
                 time.sleep(0.0025)
             print(i)
     except KeyboardInterrupt:
-        GPIO.cleanup()
+        # GPIO.cleanup()
 
     # GPIO.cleanup()
 
