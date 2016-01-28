@@ -14,12 +14,13 @@ LeadingTreads = []
 
 isRunning = False
 stopChecking = False
+tryToStart = True
 
 def autoRun():
     tpid = getPid()
     print "Raspberry id ", tpid
     global isRunning
-    while True:
+    while tryToStart == True:
         if tpid != 1 and checkSensor() == 1:
             isRunning = True
             # setOn()
@@ -170,6 +171,8 @@ def setOff():
     isRunning = False
     global stopChecking
     stopChecking = True
+    global tryToStart
+    tryToStart = False
     GPIO.cleanup()
     thread.start_new_thread(autoRun, ())
 
@@ -178,6 +181,8 @@ def setOn():
     isRunning = True
     global stopChecking
     stopChecking = False
+    global tryToStart
+    tryToStart = True
     thread.start_new_thread(autoRun, ())
 
 def readfile(file_name):
