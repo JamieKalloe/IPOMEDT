@@ -288,7 +288,7 @@ def downf(steps=515):
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
             curr_state = GPIO.input(buttonPin)
-            if prev_state != curr_state:
+            # if prev_state != curr_state:
                 # if isRunning is True:
                 #     downf(50)
                 # else:
