@@ -33,7 +33,6 @@ def autoRun():
             isRunning = True
 
         print "isRunning is", isRunning
-        #global isRunning
         while isRunning == True:
 
             if tpid != 1:
