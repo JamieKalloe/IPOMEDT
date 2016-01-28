@@ -498,7 +498,7 @@ def reboot():
 
 
 @app.route('/individual_animation.htm')
-def animatie1():
+def individual_animation():
     global tryToStart
     global individualAnim
     individualAnim = True
@@ -522,7 +522,7 @@ def animatie1():
     return render_template('index.html', )
 
 @app.route('/stop_indivi_anim.htm')
-def stop_anim():
+def stop_indivi_anim():
     global individualAnim
     individualAnim = False
     return render_template('index.html', )
