@@ -43,7 +43,7 @@ def autoRun():
                 light("ON")
                 homef()
                 time.sleep(0.25)
-                upf(51)
+                # upf(51)
                 time.sleep(0.25)
                 downf(102)
                 time.sleep(0.25)
@@ -57,7 +57,7 @@ def autoRun():
                 print "3. Sleep 0.25"
                 time.sleep(0.25)
                 print "4. Up 400"
-                upf(400)
+                # upf(400)
                 print "5. Sleep 0.25"
                 time.sleep(0.25)
                 print "6. Down 400"
@@ -84,7 +84,7 @@ def autoRun():
                 light("ON")
                 homef()
                 time.sleep(0.25)
-                upf(400)
+                # upf(400)
                 time.sleep(0.25)
                 downf(400)
                 time.sleep(0.25)
@@ -95,7 +95,7 @@ def autoRun():
                 light("ON")
                 homef()
                 time.sleep(0.25)
-                upf(400)
+                # upf(400)
                 time.sleep(0.25)
                 downf(400)
                 time.sleep(0.25)
@@ -106,7 +106,7 @@ def autoRun():
                 light("ON")
                 homef()
                 time.sleep(0.25)
-                upf(400)
+                # upf(400)
                 time.sleep(0.25)
                 downf(400)
                 time.sleep(0.25)
@@ -237,7 +237,7 @@ def individual_anim():
             print("2. Down 400")
             time.sleep(0.25)
             print("4. Up 400")
-            upf(400)
+            # upf(400)
             print("5. Sleep 0.25")
             time.sleep(0.25)
             print("6. Down 400")
