@@ -36,7 +36,7 @@ def autoRun():
         while isRunning == True:
 
             if tpid != 1:
-                time.sleep(3)
+                time.sleep(4)
 
             if tpid == 1:
                 light("ON")
@@ -51,6 +51,7 @@ def autoRun():
                 downf(1000)
                 print("7. Sleep 0.25")
                 time.sleep(0.25)
+                time.sleep(4)
 
             if tpid == 2:
                 light("ON")
