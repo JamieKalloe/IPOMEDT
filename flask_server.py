@@ -242,6 +242,21 @@ def light(state="NULL"):
 light()
 GPIO.cleanup()
 
+def individual_anim():
+    while individualAnim == True:
+            homef()
+            print("2. Down 400")
+            downf(400)
+            print("3. Sleep 0.25")
+            time.sleep(0.25)
+            print("4. Up 400")
+            upf(400)
+            print("5. Sleep 0.25")
+            time.sleep(0.25)
+            print("6. Down 400")
+            downf(400)
+            print("7. Sleep 0.25")
+            time.sleep(0.25)
 
 def homef():
     buttonPin = 23
@@ -503,20 +518,8 @@ def individual_animation():
     global individualAnim
     individualAnim = True
     if tryToStart == False:
-        while individualAnim == True:
-            homef()
-            print("2. Down 400")
-            downf(400)
-            print("3. Sleep 0.25")
-            time.sleep(0.25)
-            print("4. Up 400")
-            upf(400)
-            print("5. Sleep 0.25")
-            time.sleep(0.25)
-            print("6. Down 400")
-            downf(400)
-            print("7. Sleep 0.25")
-            time.sleep(0.25)
+        tryToStart = True
+        thread.start_new_thread(individual_anim, ())
     else:
         print("Auto_on is running, cannot start another animation!")
     return render_template('index.html', )
@@ -525,6 +528,8 @@ def individual_animation():
 def stop_indivi_anim():
     global individualAnim
     individualAnim = False
+    GPIO.cleanup()
+    thread.start_new_thread(individual_anim, ())
     return render_template('index.html', )
 
 class checkLight(threading.Thread):
