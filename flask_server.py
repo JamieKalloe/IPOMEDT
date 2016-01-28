@@ -390,23 +390,30 @@ def lightControl():
 
 @app.route('/up.htm', methods=['GET'])
 def up():
-   # if (request.method == 'GET'):
+    global tryToStart
+    if tryToStart == False:
         steps = request.args.get("steps")
         if steps is None:
             upf(steps=515)
         else:
             upf(int(steps))
-    	return render_template('index.html', )
+    else:
+        print("Auto_on is running, cannot go up!")
+        return render_template('index.html', )
 
 
 @app.route('/down.htm', methods=['GET'])
 def down():
-    if (request.method == 'GET'):
-        steps = request.args.get("steps")
-        if steps is None:
-            downf(steps=515)
-        else:
-            downf(int(steps))
+    global tryToStart
+    if tryToStart == False:
+        if (request.method == 'GET'):
+            steps = request.args.get("steps")
+            if steps is None:
+                downf(steps=515)
+            else:
+                downf(int(steps))
+    else:
+        print("Auto_on is running, cannot go down!")
     return render_template('index.html', )
 
 
@@ -461,23 +468,31 @@ def shutdown():
         thread = StopTreads()
         thread.start()
     else:
-        print("Auto_ is running, cannot shutdown!")
+        print("Auto_on is running, cannot shutdown!")
 
     return 'The Raspberry Pi is shutting down.'
 
 
 @app.route('/reboot.htm')
 def reboot():
-    os.system('sudo shutdown -r now')
-    thread = StepThreads()
-    thread.start()
+    global tryToStart
+    if tryToStart == False:
+        os.system('sudo shutdown -r now')
+        thread = StepThreads()
+        thread.start()
+    else:
+        print("Auto_on is running, cannot reboot!")
     return 'The Raspberry Pi is rebooting.'
 
 
 @app.route('/animatie1.htm')
 def animatie1():
-    sensor_status = checkSensor()
-    print "sensor = ", sensor_status
+    global tryToStart
+    if tryToStart == False:
+        sensor_status = checkSensor()
+        print "sensor = ", sensor_status
+    else:
+        print("Auto_on is running, cannot start another animation!")
     return render_template('index.html', )
 
 
