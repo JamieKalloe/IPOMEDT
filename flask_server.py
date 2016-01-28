@@ -88,34 +88,40 @@ def autoRun():
                 #         break
 
             if tpid == 3:
-                light()
-                downf(1024)
+                light("ON")
+                homef()
+                downf(400)
                 time.sleep(0.25)
-                upf(512)
+                upf(400)
                 time.sleep(0.25)
-                downf(1024)
+                downf(400)
                 time.sleep(0.25)
                 homef()
+                time.sleep(10)
 
             if tpid == 4:
-                light()
-                downf(1024)
+                light("ON")
+                homef()
+                downf(400)
                 time.sleep(0.25)
-                upf(512)
+                upf(400)
                 time.sleep(0.25)
-                downf(1024)
+                downf(400)
                 time.sleep(0.25)
                 homef()
+                time.sleep(10)
 				
             if tpid == 5:
-                light()
-                downf(1024)
+                light("ON")
+                homef()
+                downf(400)
                 time.sleep(0.25)
-                upf(512)
+                upf(400)
                 time.sleep(0.25)
-                downf(1024)
+                downf(400)
                 time.sleep(0.25)
                 homef()
+                time.sleep(10)
             break
 
 
@@ -449,9 +455,13 @@ def auto_off():
 
 @app.route('/shutdown.htm')
 def shutdown():
-    os.system('sudo shutdown -h now')
-    thread = StopTreads()
-    thread.start()
+    global tryToStart
+    if tryToStart == False:
+        os.system('sudo shutdown -h now')
+        thread = StopTreads()
+        thread.start()
+    else:
+        print("Auto_ is running, cannot shutdown!")
 
     return 'The Raspberry Pi is shutting down.'
 
