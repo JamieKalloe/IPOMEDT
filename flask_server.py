@@ -116,7 +116,7 @@ def autoRun():
             break
 
 
-thread.start_new_thread(autoRun, ())
+# thread.start_new_thread(autoRun, ())
 
 
 def blink():
