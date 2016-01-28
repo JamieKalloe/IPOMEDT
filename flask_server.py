@@ -264,7 +264,6 @@ def homef():
 
     return 1
 
-
 def downf(steps=515):
     GPIO.setmode(GPIO.BCM)
     buttonPin = 23
