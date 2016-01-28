@@ -35,7 +35,7 @@ def autoRun():
         #global isRunning
         while isRunning == True:
             # light()
-            homef()
+            # homef()
             #tpid = getPid()
             #if (tpid != 1):
             #    sensor()
@@ -45,6 +45,7 @@ def autoRun():
              #   blink()
             if tpid == 1:
                 light()
+                homef()
                 downf(102)
                 time.sleep(0.25)
                 upf(51)
@@ -55,8 +56,9 @@ def autoRun():
                 time.sleep(10)
 
             if tpid == 2:
-                print "1. Start light"
+                # print "1. Start light"
                 light()
+                homef()
                 print "2. Down 400"
                 downf(400)
                 print "3. Sleep 0.25"
