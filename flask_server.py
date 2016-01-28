@@ -518,7 +518,6 @@ def individual_animation():
     global individualAnim
     individualAnim = True
     if tryToStart == False:
-        tryToStart = True
         thread.start_new_thread(individual_anim, ())
     else:
         print("Auto_on is running, cannot start another animation!")
