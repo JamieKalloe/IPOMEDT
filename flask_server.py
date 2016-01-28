@@ -57,7 +57,7 @@ def autoRun():
 
             if tpid == 2:
                 # print "1. Start light"
-                light()
+                light("ON")
                 homef()
                 print "2. Down 400"
                 downf(400)
