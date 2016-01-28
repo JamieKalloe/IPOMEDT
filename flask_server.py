@@ -230,10 +230,10 @@ GPIO.cleanup()
 def individual_anim():
     while individualAnim == True:
             homef()
-            print("2. Down 400")
             time.sleep(0.25)
+	    downf(410)
             print("4. Up 400")
-            # upf(400)
+            upf(300)
             print("5. Sleep 0.25")
             time.sleep(0.25)
             print("6. Down 400")
@@ -297,7 +297,7 @@ def downf(steps=515):
             for halfstep in range(8):
                 for pin in range(4):
                     GPIO.output(ControlPin[pin], seq[halfstep][pin])
-                time.sleep(0.0025)
+                time.sleep(0.00125)
             print(i)
     except KeyboardInterrupt:
         GPIO.cleanup()
@@ -338,7 +338,7 @@ def upf(steps=515):
             for halfstep in range(8):
                 for pin in range(4):
                     GPIO.output(ControlPin[pin], seq[halfstep][pin])
-                time.sleep(0.0025)
+                time.sleep(0.00125)
             print(i)
     except KeyboardInterrupt:
         GPIO.cleanup()
