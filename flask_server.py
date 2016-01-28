@@ -38,19 +38,10 @@ def autoRun():
 
             if tpid != 1:
                 time.sleep(1)
-            # light()
-            # homef()
-            #tpid = getPid()
-            #if (tpid != 1):
-            #    sensor()
-            #if (tpid == 1):
-               # blink()
-            #if (tpid != 1):
-             #   blink()
+
             if tpid == 1:
                 light("ON")
                 homef()
-                downf(102)
                 time.sleep(0.25)
                 upf(51)
                 time.sleep(0.25)
@@ -63,8 +54,6 @@ def autoRun():
                 # print "1. Start light"
                 light("ON")
                 homef()
-                print "2. Down 400"
-                downf(400)
                 print "3. Sleep 0.25"
                 time.sleep(0.25)
                 print "4. Up 400"
@@ -94,7 +83,6 @@ def autoRun():
             if tpid == 3:
                 light("ON")
                 homef()
-                downf(400)
                 time.sleep(0.25)
                 upf(400)
                 time.sleep(0.25)
@@ -106,7 +94,6 @@ def autoRun():
             if tpid == 4:
                 light("ON")
                 homef()
-                downf(400)
                 time.sleep(0.25)
                 upf(400)
                 time.sleep(0.25)
@@ -118,7 +105,6 @@ def autoRun():
             if tpid == 5:
                 light("ON")
                 homef()
-                downf(400)
                 time.sleep(0.25)
                 upf(400)
                 time.sleep(0.25)
@@ -249,8 +235,6 @@ def individual_anim():
     while individualAnim == True:
             homef()
             print("2. Down 400")
-            downf(400)
-            print("3. Sleep 0.25")
             time.sleep(0.25)
             print("4. Up 400")
             upf(400)
