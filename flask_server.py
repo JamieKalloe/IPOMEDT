@@ -14,7 +14,7 @@ LeadingTreads = []
 
 isRunning = False
 stopChecking = False
-tryToStart = True
+tryToStart = False
 individualAnim = False
 
 def autoRun():
